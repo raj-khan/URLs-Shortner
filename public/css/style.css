@@ -4,7 +4,7 @@
     z-index: 10;
 }
 .navbar{
-    background-image: linear-gradient(to right, #2a2827, #4f2424);
+    background-image: linear-gradient(to right, #ff5722, #ffc107);
     padding: 0 15px !important;
     color: #fff;
 }
@@ -36,47 +36,6 @@
 }
 h1, p{
     color: #fff;
-}
-
-.square ul{
-    margin: 0 !important;
-}
-.square li{
-    top: 50vh;
-    left: 10vh;
-    animation: square 10s linear infinite;
-}
-
-.square li:nth-child(2){
-    top: 80vh;
-    left: 10vh;
-    animation-delay: 2s;
-}
-.square li:nth-child(3){
-    top: 80vh;
-    left: 80vw;
-    animation-delay: 4s;
-}
-.square li:nth-child(4){
-    top: 10vh;
-    left: 85vw;
-    animation-delay: 6s;
-}
-.square li:nth-child(5){
-    top: 10vh;
-    left: 10vw;
-    animation-delay: 8s;
-}
-
-@keyframes square {
-    0%{
-        transform: scale(0) rotateY(0deg);
-        opacity: 1;
-    }
-    100%{
-        transform: scale(5) rotateY(1000deg);
-        opacity: 1;
-    }
 }
 .circle ul{
     margin: 0 !important;
@@ -161,3 +120,4 @@ h4{
 .max-width-none{
     max-width: none;
 }
+

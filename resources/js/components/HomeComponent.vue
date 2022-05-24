@@ -8,15 +8,6 @@
             </div>
         </div>
 
-        <div class="square">
-            <ul>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
-        </div>
         <div class="circle">
             <ul>
                 <li></li>
