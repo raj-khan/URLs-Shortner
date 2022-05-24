@@ -21,6 +21,8 @@ window.Vue = require('vue').default;
 
 Vue.component('home-component', require('./components/HomeComponent').default);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component('footer-component', require('./components/FooterComponent.vue').default);
+Vue.component('urlshort-component', require('./components/UrlShortnerComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

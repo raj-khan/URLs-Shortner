@@ -23,9 +23,6 @@
 </head>
 <body>
 <div id="app">
-    <!-- <navbar-component :app_config="{{json_encode($app_config ?? '')}}" @guest user='null' @else :user='{{ Auth::user() }}' @endguest > -->
-
-    <!-- </navbar-component> -->
     @yield('content')
 </div>
 <!-- Scripts -->

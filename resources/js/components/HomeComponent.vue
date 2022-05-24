@@ -2,9 +2,9 @@
     <div id="link">
         <div class="welcome" id="banner">
             <div class="text-center">
-                <h1>Short your URL and share easily</h1>
-                <p>Smart URL Shortner</p>
-                <!--                <urlshort-component></urlshort-component>-->
+                <h1>URl Shortner</h1>
+                <p>Smart URL Shortner Short your URL smartly</p>
+                <urlshort-component></urlshort-component>
             </div>
         </div>
 
@@ -26,7 +26,9 @@
                 <li></li>
             </ul>
         </div>
+        <footer-component></footer-component>
     </div>
+
 </template>
 
 <script>

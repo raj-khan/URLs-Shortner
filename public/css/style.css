@@ -4,7 +4,7 @@
     z-index: 10;
 }
 .navbar{
-    background-image: linear-gradient(to right, #ff5722, #ffc107);
+    background-image: linear-gradient(to right, #2a2827, #4f2424);
     padding: 0 15px !important;
     color: #fff;
 }
@@ -160,10 +160,4 @@ h4{
 }
 .max-width-none{
     max-width: none;
-}
-.login-width{
-    -webkit-box-shadow: 0 0 48px rgba(0,0,0,.06);
-    box-shadow: 0 0 48px rgba(0,0,0,.06);
-    width: 350px !important;
-    padding: 2rem 0.4rem !important;
 }
