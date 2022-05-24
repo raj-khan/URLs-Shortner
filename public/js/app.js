@@ -5282,6 +5282,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   mounted: function mounted() {
     console.log('Component mounted.');
@@ -5301,6 +5316,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -28012,20 +28042,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              ),
-            ]),
-          ]),
+    return _c("div", { attrs: { id: "link" } }, [
+      _c("div", { staticClass: "welcome", attrs: { id: "banner" } }, [
+        _c("div", { staticClass: "text-center" }, [
+          _c("h1", [_vm._v("Short your URL and share easily")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Smart URL Shortner")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "square" }, [
+        _c("ul", [
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "circle" }, [
+        _c("ul", [
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
         ]),
       ]),
     ])
@@ -28060,20 +28110,40 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "container" }, [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _c("div", { staticClass: "card-header" }, [
-              _vm._v("Example Component"),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm._v(
-                "\n                    I'm an example component.\n                "
-              ),
-            ]),
-          ]),
+    return _c("div", { attrs: { id: "link" } }, [
+      _c("div", { staticClass: "welcome", attrs: { id: "banner" } }, [
+        _c("div", { staticClass: "text-center" }, [
+          _c("h1", [_vm._v("Short your URL and share easily")]),
+          _vm._v(" "),
+          _c("p", [_vm._v("Smart URL Shortner")]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "square" }, [
+        _c("ul", [
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "circle" }, [
+        _c("ul", [
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
+          _vm._v(" "),
+          _c("li"),
         ]),
       ]),
     ])
