@@ -22,3 +22,4 @@ Route::get('/', function () {
  * For Urls
  */
 Route::post('/short-url', [UrlsController::class, 'shortUrl']);
+Route::get('/{hash}', [UrlsController::class, 'redirectUrl']);

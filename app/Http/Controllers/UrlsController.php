@@ -32,4 +32,14 @@ class UrlsController extends Controller
 
         return response()->json(['success' => false, 'message' => 'URL not shorted!', 'data' => null]);
     }
+
+    public function redirectUrl($hash)
+    {
+        $url = Urls::where('hash', $hash)->first();
+        if($url)
+        {
+            return redirect()->to($url->url);
+        }
+        return redirect()->back();
+    }
 }
