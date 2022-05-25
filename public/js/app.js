@@ -5453,6 +5453,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -31923,7 +31926,22 @@ var render = function () {
                       _c("tbody", [
                         _c("tr", [
                           _c("th", { attrs: { scope: "row" } }, [
-                            _vm._v(_vm._s(_vm.shortUrl.data.url)),
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href: _vm.shortUrl.data.url,
+                                  target: "_blank",
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(_vm.shortUrl.data.url) +
+                                    "\n                                    "
+                                ),
+                              ]
+                            ),
                           ]),
                           _vm._v(" "),
                           _c("th", { attrs: { scope: "row" } }, [

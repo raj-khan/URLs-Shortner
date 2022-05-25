@@ -49,12 +49,15 @@
                                 </thead>
                                 <tbody>
                                 <tr>
-                                    <th scope="row">{{shortUrl.data.url}}</th>
+                                    <th scope="row">
+                                        <a :href="shortUrl.data.url" target="_blank">
+                                            {{shortUrl.data.url}}
+                                        </a>
+                                    </th>
                                     <th scope="row">
                                         <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
                                             {{baseUrl+'/'+shortUrl.data.hash}}
                                         </a>
-
                                     </th>
                                     <th scope="row">
                                         <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
