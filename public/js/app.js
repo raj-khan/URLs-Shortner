@@ -5403,11 +5403,62 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       url: '',
-      shortUrl: {}
+      shortUrl: {},
+      baseUrl: window.location.origin
     };
   },
   methods: {
@@ -31857,11 +31908,136 @@ var render = function () {
           },
         ]),
       }),
+      _vm._v(" "),
+      _vm.shortUrl.success
+        ? _c("div", { staticClass: "container" }, [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-md-12" }, [
+                _c("div", { staticClass: "card" }, [
+                  _c("div", { staticClass: "card-body" }, [
+                    _vm._m(0),
+                    _vm._v(" "),
+                    _c("table", { staticClass: "table mt-3" }, [
+                      _vm._m(1),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _vm._v(_vm._s(_vm.shortUrl.data.url)),
+                          ]),
+                          _vm._v(" "),
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href:
+                                    _vm.baseUrl + "/" + _vm.shortUrl.data.hash,
+                                  target: "_blank",
+                                },
+                              },
+                              [
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(
+                                      _vm.baseUrl + "/" + _vm.shortUrl.data.hash
+                                    ) +
+                                    "\n                                    "
+                                ),
+                              ]
+                            ),
+                          ]),
+                          _vm._v(" "),
+                          _c("th", { attrs: { scope: "row" } }, [
+                            _c(
+                              "a",
+                              {
+                                attrs: {
+                                  href:
+                                    _vm.baseUrl + "/" + _vm.shortUrl.data.hash,
+                                  target: "_blank",
+                                },
+                              },
+                              [_vm._m(2)]
+                            ),
+                            _vm._v(" "),
+                            _vm._m(3),
+                          ]),
+                        ]),
+                      ]),
+                    ]),
+                  ]),
+                ]),
+              ]),
+            ]),
+          ])
+        : _vm._e(),
     ],
     1
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "alert alert-success", attrs: { role: "alert" } },
+      [
+        _c("i", {
+          staticClass: "fa fa-check",
+          staticStyle: { "font-size": "20px", color: "darkred" },
+        }),
+        _vm._v(
+          " Wow! you made your url\n                            simple! 😎\n                            "
+        ),
+        _c(
+          "a",
+          {
+            staticClass: "badge badge-warning  text-right",
+            attrs: { href: "/" },
+          },
+          [_vm._v("Try another "), _c("i", { staticClass: "fa fa-retweet" })]
+        ),
+      ]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("thead", [
+      _c("tr", [
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Given URL")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Shorted URL")]),
+        _vm._v(" "),
+        _c("th", { attrs: { scope: "col" } }, [_vm._v("Action")]),
+      ]),
+    ])
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-sm btn-dark", attrs: { type: "button" } },
+      [_c("i", { staticClass: "fa fa-eye" })]
+    )
+  },
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      { staticClass: "btn btn-sm btn-info", attrs: { type: "button" } },
+      [_c("i", { staticClass: "fa fa-clipboard" })]
+    )
+  },
+]
 render._withStripped = true
 
 

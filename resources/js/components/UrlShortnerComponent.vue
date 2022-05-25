@@ -26,6 +26,56 @@
             </form>
         </ValidationObserver>
 
+        <div class="container" v-if="shortUrl.success">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="alert alert-success" role="alert">
+                                <i class="fa fa-check" style="font-size: 20px; color: darkred"></i> Wow! you made your url
+                                simple! 😎
+                                <a href="/" class="badge badge-warning  text-right">Try another <i
+                                    class="fa fa-retweet"></i></a>
+
+                            </div>
+
+                            <table class="table mt-3">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Given URL</th>
+                                    <th scope="col">Shorted URL</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">{{shortUrl.data.url}}</th>
+                                    <th scope="row">
+                                        <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
+                                            {{baseUrl+'/'+shortUrl.data.hash}}
+                                        </a>
+
+                                    </th>
+                                    <th scope="row">
+                                        <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
+                                            <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i></button>
+                                        </a>
+                                        <button type="button" class="btn btn-sm btn-info"><i class="fa fa-clipboard"></i></button>
+                                    </th>
+                                </tr>
+
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </template>
 
@@ -34,7 +84,8 @@ export default {
     data() {
         return {
             url: '',
-            shortUrl: {}
+            shortUrl: {},
+            baseUrl: window.location.origin
         }
     },
     methods: {
