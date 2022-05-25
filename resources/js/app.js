@@ -23,6 +23,13 @@ extend('required', {
 });
 
 /**
+ * Using for show notifications
+ */
+import Toaster from 'v-toaster'
+import 'v-toaster/dist/v-toaster.css'
+Vue.use(Toaster, {timeout: 5000})
+
+/**
  * Register globally
  */
 Vue.component('ValidationObserver', ValidationObserver);

@@ -4,82 +4,32 @@ namespace App\Http\Controllers;
 
 use App\Models\Urls;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class UrlsController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    public function shortUrl(Request $request)
     {
-        //
-    }
+        $this->validate($request, [
+            'url'=>'required'
+        ]);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+        //create hash
+        $letter = array_merge(range('a', 'z'), range('A', 'Z'));
+        $randomInteger = rand(0, 9);
+        $hash = $letter[rand(0, 51)]. $randomInteger. Str::random(4);
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        $created = Urls::create([
+            'url' => $request->url,
+            'hash' => $hash,
+        ]);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Urls  $urls
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Urls $urls)
-    {
-        //
-    }
+        if($created)
+        {
+            return response()->json(['success' => true, 'message' => 'URL shorted successfully.!', 'data' =>
+                $created ]);
+        }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Urls  $urls
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Urls $urls)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Urls  $urls
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Urls $urls)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Urls  $urls
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Urls $urls)
-    {
-        //
+        return response()->json(['success' => false, 'message' => 'URL not shorted!', 'data' => null]);
     }
 }
