@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Urls;
+use http\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -13,6 +14,11 @@ class UrlsController extends Controller
         $this->validate($request, [
             'url'=>'required'
         ]);
+        $isExists = Urls::where('url',  $request->url)->first();
+        if ($isExists) {
+//            dd($isExists->url);
+            return response()->json(['success' => true, 'message' => 'URL already shorted!', 'data' => $isExists]);
+        }
 
         //create hash
         $letter = array_merge(range('a', 'z'), range('A', 'Z'));
@@ -26,6 +32,7 @@ class UrlsController extends Controller
 
         if($created)
         {
+//            dd($created);
             return response()->json(['success' => true, 'message' => 'URL shorted successfully.!', 'data' =>
                 $created ]);
         }
