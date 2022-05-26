@@ -9,6 +9,33 @@ require('./bootstrap');
 window.Vue = require('vue').default;
 
 /**
+ * validation
+ */
+import { ValidationObserver, ValidationProvider, extend} from 'vee-validate';
+import { required } from 'vee-validate/dist/rules';
+
+/**
+ * Override default message
+ */
+extend('required', {
+    ...required,
+    message: 'This field is required'
+});
+
+/**
+ * Using for show notifications
+ */
+import Toaster from 'v-toaster'
+import 'v-toaster/dist/v-toaster.css'
+Vue.use(Toaster, {timeout: 5000})
+
+/**
+ * Register globally
+ */
+Vue.component('ValidationObserver', ValidationObserver);
+Vue.component('ValidationProvider', ValidationProvider);
+
+/**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
  * components and automatically register them with their "basename".
