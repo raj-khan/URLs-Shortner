@@ -55,15 +55,18 @@
                                         </a>
                                     </th>
                                     <th scope="row">
-                                        <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
+                                        <a :href="baseUrl+'/'+shortUrl.data.hash" id="shortedUrl" target="_blank">
                                             {{baseUrl+'/'+shortUrl.data.hash}}
                                         </a>
                                     </th>
                                     <th scope="row">
                                         <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
-                                            <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i></button>
+                                            <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visit</button>
                                         </a>
-                                        <button type="button" class="btn btn-sm btn-info"><i class="fa fa-clipboard"></i></button>
+                                        <button type="button" class="btn btn-sm btn-info" v-on:click.prevent="copyContent"  >
+                                            <i class="fa fa-clipboard"></i>
+                                            {{ copyTextString }}
+                                        </button>
                                     </th>
                                 </tr>
 
@@ -88,7 +91,8 @@ export default {
         return {
             url: '',
             shortUrl: {},
-            baseUrl: window.location.origin
+            baseUrl: window.location.origin,
+            copyTextString: 'Copy',
         }
     },
     methods: {
@@ -105,6 +109,12 @@ export default {
                     url: [errUrl],
                 });
             })
+        },
+        copyContent() {
+            // let id = $("#shortedUrl").select();
+            this.copyTextString = 'Copied';
+            document.execCommand("copy");
+            // this.url = this.response;
         }
     },
     mounted() {
