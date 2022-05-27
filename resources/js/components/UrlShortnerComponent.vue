@@ -82,14 +82,12 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </template>
 
 <script>
 export default {
+
     data() {
         return {
             url: '',
@@ -105,6 +103,7 @@ export default {
             }).then((res) => {
                 this.shortUrl = res.data
                 this.$toaster.success(res.data.message)
+                this.copyTextString = 'Copy'
             }).catch((e) => {
                 this.$toaster.error(e.message)
                 let errUrl = e.response.data.errors.url[0];

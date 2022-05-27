@@ -5459,9 +5459,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5481,6 +5478,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.shortUrl = res.data;
 
         _this.$toaster.success(res.data.message);
+
+        _this.copyTextString = 'Copy';
       })["catch"](function (e) {
         _this.$toaster.error(e.message);
 
@@ -31720,9 +31719,9 @@ var render = function () {
           "div",
           { staticClass: "text-center" },
           [
-            _c("h1", [_vm._v("URl Shortner")]),
+            _c("h1", [_vm._v("URLs Shortner")]),
             _vm._v(" "),
-            _c("p", [_vm._v("Smart URL Shortner Short your URL smartly")]),
+            _c("p", [_vm._v("Smart URLs Shortner Short your URL easily")]),
             _vm._v(" "),
             _c("urlshort-component"),
           ],
