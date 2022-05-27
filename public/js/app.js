@@ -5459,6 +5459,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -5489,9 +5492,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     copyContent: function copyContent() {
-      // let id = $("#shortedUrl").select();
+      this.$refs.shortedUrl.focus();
+      document.execCommand('copy');
       this.copyTextString = 'Copied';
-      document.execCommand("copy"); // this.url = this.response;
     }
   },
   mounted: function mounted() {}
@@ -31954,26 +31957,20 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("th", { attrs: { scope: "row" } }, [
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    _vm.baseUrl + "/" + _vm.shortUrl.data.hash,
-                                  id: "shortedUrl",
-                                  target: "_blank",
+                            _c("input", {
+                              ref: "shortedUrl",
+                              staticClass: "shorted_url",
+                              attrs: { readonly: "" },
+                              domProps: {
+                                value:
+                                  _vm.baseUrl + "/" + _vm.shortUrl.data.hash,
+                              },
+                              on: {
+                                focus: function ($event) {
+                                  return $event.target.select()
                                 },
                               },
-                              [
-                                _vm._v(
-                                  "\n                                        " +
-                                    _vm._s(
-                                      _vm.baseUrl + "/" + _vm.shortUrl.data.hash
-                                    ) +
-                                    "\n                                    "
-                                ),
-                              ]
-                            ),
+                            }),
                           ]),
                           _vm._v(" "),
                           _c("th", { attrs: { scope: "row" } }, [
@@ -31994,15 +31991,7 @@ var render = function () {
                               {
                                 staticClass: "btn btn-sm btn-info",
                                 attrs: { type: "button" },
-                                on: {
-                                  click: function ($event) {
-                                    $event.preventDefault()
-                                    return _vm.copyContent.apply(
-                                      null,
-                                      arguments
-                                    )
-                                  },
-                                },
+                                on: { click: _vm.copyContent },
                               },
                               [
                                 _c("i", { staticClass: "fa fa-clipboard" }),

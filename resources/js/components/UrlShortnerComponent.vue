@@ -55,15 +55,18 @@
                                         </a>
                                     </th>
                                     <th scope="row">
-                                        <a :href="baseUrl+'/'+shortUrl.data.hash" id="shortedUrl" target="_blank">
-                                            {{baseUrl+'/'+shortUrl.data.hash}}
-                                        </a>
+
+                                        <input class="shorted_url"
+                                            v-on:focus="$event.target.select()"
+                                            ref="shortedUrl"
+                                            readonly
+                                            :value="baseUrl+'/'+shortUrl.data.hash"/>
                                     </th>
                                     <th scope="row">
                                         <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
                                             <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visit</button>
                                         </a>
-                                        <button type="button" class="btn btn-sm btn-info" v-on:click.prevent="copyContent"  >
+                                        <button type="button" class="btn btn-sm btn-info" @click="copyContent"  >
                                             <i class="fa fa-clipboard"></i>
                                             {{ copyTextString }}
                                         </button>
@@ -111,10 +114,9 @@ export default {
             })
         },
         copyContent() {
-            // let id = $("#shortedUrl").select();
+            this.$refs.shortedUrl.focus();
+            document.execCommand('copy');
             this.copyTextString = 'Copied';
-            document.execCommand("copy");
-            // this.url = this.response;
         }
     },
     mounted() {
