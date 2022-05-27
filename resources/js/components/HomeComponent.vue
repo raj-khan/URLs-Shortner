@@ -2,12 +2,13 @@
     <div id="link">
         <div class="welcome" id="banner">
             <div class="text-center">
-                <h1>URl Shortner</h1>
-                <p>Smart URL Shortner Short your URL smartly</p>
+                <h1>URLs Shortner</h1>
+                <p>Smart URLs Shortner Short your URL easily</p>
                 <urlshort-component></urlshort-component>
             </div>
         </div>
 
+        <!--Animation style-->
         <div class="circle">
             <ul>
                 <li></li>
@@ -19,7 +20,6 @@
         </div>
         <footer-component></footer-component>
     </div>
-
 </template>
 
 <script>

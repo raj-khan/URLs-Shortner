@@ -5456,12 +5456,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
       url: '',
       shortUrl: {},
-      baseUrl: window.location.origin
+      baseUrl: window.location.origin,
+      copyTextString: 'Copy'
     };
   },
   methods: {
@@ -5474,6 +5478,8 @@ __webpack_require__.r(__webpack_exports__);
         _this.shortUrl = res.data;
 
         _this.$toaster.success(res.data.message);
+
+        _this.copyTextString = 'Copy';
       })["catch"](function (e) {
         _this.$toaster.error(e.message);
 
@@ -5483,6 +5489,11 @@ __webpack_require__.r(__webpack_exports__);
           url: [errUrl]
         });
       });
+    },
+    copyContent: function copyContent() {
+      this.$refs.shortedUrl.focus();
+      document.execCommand('copy');
+      this.copyTextString = 'Copied';
     }
   },
   mounted: function mounted() {}
@@ -31708,9 +31719,9 @@ var render = function () {
           "div",
           { staticClass: "text-center" },
           [
-            _c("h1", [_vm._v("URl Shortner")]),
+            _c("h1", [_vm._v("URLs Shortner")]),
             _vm._v(" "),
-            _c("p", [_vm._v("Smart URL Shortner Short your URL smartly")]),
+            _c("p", [_vm._v("Smart URLs Shortner Short your URL easily")]),
             _vm._v(" "),
             _c("urlshort-component"),
           ],
@@ -31945,25 +31956,20 @@ var render = function () {
                           ]),
                           _vm._v(" "),
                           _c("th", { attrs: { scope: "row" } }, [
-                            _c(
-                              "a",
-                              {
-                                attrs: {
-                                  href:
-                                    _vm.baseUrl + "/" + _vm.shortUrl.data.hash,
-                                  target: "_blank",
+                            _c("input", {
+                              ref: "shortedUrl",
+                              staticClass: "shorted_url",
+                              attrs: { readonly: "" },
+                              domProps: {
+                                value:
+                                  _vm.baseUrl + "/" + _vm.shortUrl.data.hash,
+                              },
+                              on: {
+                                focus: function ($event) {
+                                  return $event.target.select()
                                 },
                               },
-                              [
-                                _vm._v(
-                                  "\n                                        " +
-                                    _vm._s(
-                                      _vm.baseUrl + "/" + _vm.shortUrl.data.hash
-                                    ) +
-                                    "\n                                    "
-                                ),
-                              ]
-                            ),
+                            }),
                           ]),
                           _vm._v(" "),
                           _c("th", { attrs: { scope: "row" } }, [
@@ -31979,7 +31985,22 @@ var render = function () {
                               [_vm._m(2)]
                             ),
                             _vm._v(" "),
-                            _vm._m(3),
+                            _c(
+                              "button",
+                              {
+                                staticClass: "btn btn-sm btn-info",
+                                attrs: { type: "button" },
+                                on: { click: _vm.copyContent },
+                              },
+                              [
+                                _c("i", { staticClass: "fa fa-clipboard" }),
+                                _vm._v(
+                                  "\n                                        " +
+                                    _vm._s(_vm.copyTextString) +
+                                    "\n                                    "
+                                ),
+                              ]
+                            ),
                           ]),
                         ]),
                       ]),
@@ -32042,17 +32063,7 @@ var staticRenderFns = [
     return _c(
       "button",
       { staticClass: "btn btn-sm btn-dark", attrs: { type: "button" } },
-      [_c("i", { staticClass: "fa fa-eye" })]
-    )
-  },
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "button",
-      { staticClass: "btn btn-sm btn-info", attrs: { type: "button" } },
-      [_c("i", { staticClass: "fa fa-clipboard" })]
+      [_c("i", { staticClass: "fa fa-eye" }), _vm._v(" Visit")]
     )
   },
 ]

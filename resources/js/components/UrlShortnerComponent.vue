@@ -55,15 +55,21 @@
                                         </a>
                                     </th>
                                     <th scope="row">
-                                        <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
-                                            {{baseUrl+'/'+shortUrl.data.hash}}
-                                        </a>
+
+                                        <input class="shorted_url"
+                                            v-on:focus="$event.target.select()"
+                                            ref="shortedUrl"
+                                            readonly
+                                            :value="baseUrl+'/'+shortUrl.data.hash"/>
                                     </th>
                                     <th scope="row">
                                         <a :href="baseUrl+'/'+shortUrl.data.hash" target="_blank">
-                                            <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i></button>
+                                            <button type="button" class="btn btn-sm btn-dark"><i class="fa fa-eye"></i> Visit</button>
                                         </a>
-                                        <button type="button" class="btn btn-sm btn-info"><i class="fa fa-clipboard"></i></button>
+                                        <button type="button" class="btn btn-sm btn-info" @click="copyContent"  >
+                                            <i class="fa fa-clipboard"></i>
+                                            {{ copyTextString }}
+                                        </button>
                                     </th>
                                 </tr>
 
@@ -76,19 +82,18 @@
                 </div>
             </div>
         </div>
-
-
-
     </div>
 </template>
 
 <script>
 export default {
+
     data() {
         return {
             url: '',
             shortUrl: {},
-            baseUrl: window.location.origin
+            baseUrl: window.location.origin,
+            copyTextString: 'Copy',
         }
     },
     methods: {
@@ -98,6 +103,7 @@ export default {
             }).then((res) => {
                 this.shortUrl = res.data
                 this.$toaster.success(res.data.message)
+                this.copyTextString = 'Copy'
             }).catch((e) => {
                 this.$toaster.error(e.message)
                 let errUrl = e.response.data.errors.url[0];
@@ -105,6 +111,11 @@ export default {
                     url: [errUrl],
                 });
             })
+        },
+        copyContent() {
+            this.$refs.shortedUrl.focus();
+            document.execCommand('copy');
+            this.copyTextString = 'Copied';
         }
     },
     mounted() {
