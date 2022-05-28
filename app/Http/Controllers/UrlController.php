@@ -18,9 +18,12 @@ class UrlController extends Controller
      */
     public function shortUrl(Request $request): JsonResponse
     {
+        # Validation regular expression for url validation
+        $regex = '/^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/';
+
         # Validation rules for request validation
         $this->validate($request, [
-            'url'=> 'required',
+            'url'=> 'required|regex:'.$regex,
         ]);
         try{
             $isExists = Url::where('url',  $request->url)->first();

@@ -5481,7 +5481,7 @@ __webpack_require__.r(__webpack_exports__);
 
         _this.copyTextString = 'Copy';
       })["catch"](function (e) {
-        _this.$toaster.error(e.message);
+        _this.$toaster.error(e.response.data.errors.url[0]);
 
         var errUrl = e.response.data.errors.url[0];
 
@@ -31859,7 +31859,7 @@ var render = function () {
                                             staticClass: "form-control",
                                             attrs: {
                                               name: "url",
-                                              type: "url",
+                                              type: "text",
                                               placeholder: "Enter your URL",
                                             },
                                             domProps: { value: _vm.url },

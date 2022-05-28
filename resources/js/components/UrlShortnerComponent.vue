@@ -10,7 +10,7 @@
                                     <span class="input-group-text"> <i class="fa fa-link"></i> </span>
                                 </div>
 
-                                <input name="url" type="url" v-model="url" class="form-control"
+                                <input name="url" type="text" v-model="url" class="form-control"
                                        placeholder="Enter your URL">
                                 <div class="invalid-feedback d-block" style="font-size: 18px; color: red;">{{
                                         errors[0]
@@ -105,7 +105,7 @@ export default {
                 this.$toaster.success(res.data.message)
                 this.copyTextString = 'Copy'
             }).catch((e) => {
-                this.$toaster.error(e.message)
+                this.$toaster.error(e.response.data.errors.url[0])
                 let errUrl = e.response.data.errors.url[0];
                 this.$refs.form.setErrors({
                     url: [errUrl],
