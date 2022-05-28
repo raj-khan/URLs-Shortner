@@ -8,43 +8,38 @@ A URL SHORTNER application using Laravel and Vue JS.
 
 
 
-## Requirements
+## Requirements / Version Depedencies
 
-- [PHP 8.x](https://www.php.net/releases/8.0/en.php)
+- [PHP 7.4 or above](https://www.php.net/releases/8.0/en.php)
 - [Laravel 8.x](https://laravel.com/docs/8.x/releases)
 - [Vue 2](https://vuejs.org/)
 
 
-## Installation
+## Installation & Run
 
-Install shortUrl with below commands
+To run the project follow below procesures:-
 
+* First Extract the zip folder
+* Create a database as "url_shortner"
+* Import dumo url_shortner.sql file into your database.
+* Run command to serve the application.
 ```bash
-  git clone https://github.com/raj-khan/shortUrl
-  cd shortUrl
-  composer Install
-  cp .env.example .env
-  php artisan key:generate
-  php artisan migrate
   php artisan serve
-
-  npm Install
-  npm run dev
-  npm run watch
-
 ```
 
 ## Demo
+For more details I have hosted the application
+in my server,
+You can visit or check the video recording.
 
-http://url-short.raajkhan.com/
+Link: http://urls-shortner.raajkhan.com/
+
+Video Demo: https://www.awesomescreenshot.com/video/9150578?key=0c4f9738a3132f3459d7d589f31255fe
+
+## Acknowledgements
+
+- [Awesome Screenshot and screen recorder](https://www.awesomescreenshot.com/)
+- [readme.so](https://readme.so/editor)
 
 
-## Support
-
-For support, email meherullah97@gmail.com.
-
-
-## License
-
-[GLWTPL](https://github.com/me-shaon/GLWTPL/blob/master/LICENSE)
 

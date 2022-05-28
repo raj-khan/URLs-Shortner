@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UrlsController;
+use App\Http\Controllers\UrlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 /**
- * For Urls
+ * For Url
  */
-Route::post('/short-url', [UrlsController::class, 'shortUrl']);
-Route::get('/{hash}', [UrlsController::class, 'redirectUrl']);
+Route::post('/short-url', [UrlController::class, 'shortUrl']);
+Route::get('/{hash}', [UrlController::class, 'redirectUrl']);
