@@ -36,4 +36,10 @@ Link: http://urls-shortner.raajkhan.com/
 
 Video Demo: https://www.awesomescreenshot.com/video/9150578?key=0c4f9738a3132f3459d7d589f31255fe
 
+## Acknowledgements
+
+- [Awesome Screenshot and screen recorder](https://www.awesomescreenshot.com/)
+- [readme.so](https://readme.so/editor)
+
+
 
