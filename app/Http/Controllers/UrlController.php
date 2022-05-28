@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Urls;
-use http\Url;
+use App\Models\Url;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-class UrlsController extends Controller
+class UrlController extends Controller
 {
     public function shortUrl(Request $request)
     {
         $this->validate($request, [
             'url'=>'required'
         ]);
-        $isExists = Urls::where('url',  $request->url)->first();
+        $isExists = Url::where('url',  $request->url)->first();
         if ($isExists) {
 //            dd($isExists->url);
             return response()->json(['success' => true, 'message' => 'URL already shorted!', 'data' => $isExists]);
@@ -25,7 +24,7 @@ class UrlsController extends Controller
         $randomInteger = rand(0, 9);
         $hash = $letter[rand(0, 51)]. $randomInteger. Str::random(4);
 
-        $created = Urls::create([
+        $created = Url::create([
             'url' => $request->url,
             'hash' => $hash,
         ]);
@@ -42,7 +41,7 @@ class UrlsController extends Controller
 
     public function redirectUrl($hash)
     {
-        $url = Urls::where('hash', $hash)->first();
+        $url = Url::where('hash', $hash)->first();
         if($url)
         {
             return redirect()->to($url->url);
