@@ -3,49 +3,66 @@
 namespace App\Http\Controllers;
 
 use App\Models\Url;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Illuminate\Validation\ValidationException;
 
 class UrlController extends Controller
 {
-    public function shortUrl(Request $request)
+    /**
+     * @param Request $request
+     * @return JsonResponse
+     * @throws ValidationException
+     */
+    public function shortUrl(Request $request): JsonResponse
     {
+        # Validation rules for request validation
         $this->validate($request, [
-            'url'=>'required'
+            'url'=> 'required',
         ]);
-        $isExists = Url::where('url',  $request->url)->first();
-        if ($isExists) {
-//            dd($isExists->url);
-            return response()->json(['success' => true, 'message' => 'URL already shorted!', 'data' => $isExists]);
+        try{
+            $isExists = Url::where('url',  $request->url)->first();
+            if ($isExists) {
+                $message = 'URL already shorted!';
+            }else{
+                #create hash
+                $hash = $this->generateHash();
+                # create new url
+                $created = Url::create([
+                    'url'  => $request->url,
+                    'hash' => $hash,
+                ]);
+                $message = 'URL shorted successfully.!';
+            }
+            $data = $isExists?? $created;
+        }catch (\Exception $exception){
+            $data = false;
+            $message = 'URL not shorted!';
         }
 
-        //create hash
-        $letter = array_merge(range('a', 'z'), range('A', 'Z'));
-        $randomInteger = rand(0, 9);
-        $hash = $letter[rand(0, 51)]. $randomInteger. Str::random(4);
-
-        $created = Url::create([
-            'url' => $request->url,
-            'hash' => $hash,
-        ]);
-
-        if($created)
-        {
-//            dd($created);
-            return response()->json(['success' => true, 'message' => 'URL shorted successfully.!', 'data' =>
-                $created ]);
-        }
-
-        return response()->json(['success' => false, 'message' => 'URL not shorted!', 'data' => null]);
+        return response()->json(['success' => (bool) $data, 'message' => $message, 'data' => $data??null]);
     }
 
-    public function redirectUrl($hash)
+    /**
+     * @param $hash
+     * @return RedirectResponse
+     */
+    public function redirectUrl($hash): RedirectResponse
     {
         $url = Url::where('hash', $hash)->first();
-        if($url)
-        {
-            return redirect()->to($url->url);
-        }
-        return redirect()->back();
+        return $url ? redirect()->to($url->url) :  redirect()->back();
     }
+
+    /**
+     * @return string
+     */
+    protected function generateHash(): string
+    {
+        $letter = array_merge(range('a', 'z'), range('A', 'Z'));
+
+        return $letter[rand(0, 51)].  rand(0, 9). Str::random(4);
+    }
+
 }
