@@ -107,5 +107,6 @@ h4 {
 .shorted_url {
     border: none;
     border-color: transparent;
+    width: 100%
 }
 

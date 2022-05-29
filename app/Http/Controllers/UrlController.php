@@ -50,9 +50,8 @@ class UrlController extends Controller
 
     /**
      * @param $hash
-     * @return RedirectResponse
      */
-    public function redirectUrl($hash): RedirectResponse
+    public function redirectUrl($hash)
     {
         $url = Url::where('hash', $hash)->first();
         return $url ? redirect()->to($url->url) :  redirect()->back();
