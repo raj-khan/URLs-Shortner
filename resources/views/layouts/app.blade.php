@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'URL-Shortner') }}</title>
+    <title>URLs Shortner</title>
 
 
     <!-- Fonts -->

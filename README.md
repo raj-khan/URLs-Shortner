@@ -4,27 +4,32 @@
 
 # URLs Shortner
 
-A URL SHORTNER application using Laravel and Vue JS.
+A URLs shortener. application using Laravel and Vue.js.
 
 
 
 ## Requirements / Version Depedencies
 
 - [PHP 7.4 or above](https://www.php.net/releases/8.0/en.php)
-- [Laravel 8.x](https://laravel.com/docs/8.x/releases)
-- [Vue 2](https://vuejs.org/)
+- [Laravel 8.83.13](https://laravel.com/docs/8.x/releases)
+- [Vue 2.6.12](https://vuejs.org/)
+- [Node JS Latest LTS Version: 16.15.0 (includes npm 8.5.5)](https://nodejs.org/en/download/)
 
 
-## Installation & Run
+## Installation
 
-To run the project follow below procesures:-
+Install URLs Shortner with below commands
 
-* First Extract the zip folder
-* Create a database as "url_shortner"
-* Import dumo url_shortner.sql file into your database.
-* Run command to serve the application.
 ```bash
+  git clone https://github.com/raj-khan/URLs-Shortner.git
+  cd URLs-Shortner
+  composer Install
+  cp .env.example .env
+  php artisan key:generate
+  **create a database and add the database info in .env file** then run the command:-
+  php artisan migrate
   php artisan serve
+
 ```
 
 ## Demo Video
