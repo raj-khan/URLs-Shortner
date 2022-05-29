@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Url;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -53,6 +52,7 @@ class UrlController extends Controller
      */
     public function redirectUrl($hash)
     {
+
         $url = Url::where('hash', $hash)->first();
         return $url ? redirect()->to($url->url) :  redirect()->back();
     }

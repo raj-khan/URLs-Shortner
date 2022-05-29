@@ -27,14 +27,9 @@ To run the project follow below procesures:-
   php artisan serve
 ```
 
-## Demo
-For more details I have hosted the application
-in my server,
-You can visit or check the video recording.
+## Demo Video
 
-Link: http://urls-shortner.raajkhan.com/
-
-Video Demo: https://www.awesomescreenshot.com/video/9150578?key=0c4f9738a3132f3459d7d589f31255fe
+Link: https://www.awesomescreenshot.com/video/9159853?key=3110b2d13b3b965f39ea57316510fd74
 
 ## Acknowledgements
 
