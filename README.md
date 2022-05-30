@@ -33,9 +33,11 @@ Install URLs Shortner with below commands
 
 ```
 
-## Demo Video
+## Demo
 
-Link: https://www.awesomescreenshot.com/video/9159853?key=3110b2d13b3b965f39ea57316510fd74
+LinL: https://urls-shortner.raajkhan.xyz
+
+Video: https://www.awesomescreenshot.com/video/9159853?key=3110b2d13b3b965f39ea57316510fd74
 
 ## Acknowledgements
 
