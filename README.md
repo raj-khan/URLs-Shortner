@@ -26,8 +26,9 @@ Install URLs Shortner with below commands
   composer Install
   cp .env.example .env
   php artisan key:generate
-  **create a database and add the database info in .env file** then run the command:-
+  #create a database and add the database info in .env file, then run the command:-
   php artisan migrate
+  #Or, If you want to upload MySQL dump file you will find it as 'url-shortner.sql'
   php artisan serve
 
 ```
